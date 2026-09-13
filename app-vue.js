@@ -134,7 +134,7 @@ const App = {
         <input type="range" min="0" max="100" v-model.number="thresholdPercent">
       </div>
       <div class="controls">
-        <button @click="applyMatch">Buscar .dat & Aplicar Match</button>
+        <button @click="applyMatch">Buscar .rdb & Aplicar Match</button>
         <button @click="exportLpl">Exportar .lpl</button>
       </div>
       <div id="summary" class="small note">{{ summary }}</div>

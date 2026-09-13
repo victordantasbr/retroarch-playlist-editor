@@ -62,6 +62,10 @@ export default function useFuzzyMatch() {
     return names;
   }
 
+  async function fetchRdbNames(systemName) {
+    return fetchDatNames(systemName);
+  }
+
   function matchLabel(label, nameList, threshold = 0.65) {
     if (!label || !nameList || nameList.length === 0) return null;
     
@@ -99,5 +103,5 @@ export default function useFuzzyMatch() {
     return null;
   }
 
-  return { sanitizeLabel, fetchDatNames, matchLabel, extractRegion };
+  return { sanitizeLabel, fetchDatNames, fetchRdbNames, matchLabel, extractRegion };
 }

@@ -1,9 +1,8 @@
 export default function useSystemsList() {
   async function fetchSystemsList() {
     try {
-      // Fetch the GitHub API to get the directory listing
       const response = await fetch(
-        'https://api.github.com/repos/libretro/libretro-database/contents/metadat/no-intro',
+        'https://api.github.com/repos/libretro/libretro-database/contents/rdb',
         {
           headers: {
             'Accept': 'application/vnd.github.v3+json'
@@ -16,11 +15,10 @@ export default function useSystemsList() {
       }
 
       const files = await response.json();
-      
-      // Filter .dat files and extract system names
+
       const systems = files
-        .filter(file => file.name.endsWith('.dat'))
-        .map(file => file.name.replace(/\.dat$/, ''))
+        .filter(file => file.name.endsWith('.rdb'))
+        .map(file => file.name.replace(/\.rdb$/, ''))
         .sort();
 
       return systems;
